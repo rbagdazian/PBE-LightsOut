@@ -30,7 +30,7 @@ LOCell >> initialize [
 	self on: #mouseUp send: #toggleState to: self.
 ]
 
-{ #category : 'event handling' }
+{ #category : 'accessing' }
 LOCell >> mouseAction: aBlock [
  mouseAction := aBlock
 ]
