@@ -3,7 +3,8 @@ Class {
 	#superclass : 'Morph',
 	#instVars : [
 		'actionBlock',
-		'state'
+		'state',
+		'mouseAction'
 	],
 	#category : 'PBE-LightsOut',
 	#package : 'PBE-LightsOut'
@@ -27,6 +28,22 @@ LOCell >> initialize [
 	state := false.
 	self updateColor.
 	self on: #mouseUp send: #toggleState to: self.
+]
+
+{ #category : 'event handling' }
+LOCell >> mouseAction: aBlock [
+ mouseAction := aBlock
+]
+
+{ #category : 'event handling' }
+LOCell >> mouseMove: anEvent [
+	" do nothing"
+]
+
+{ #category : 'event handling' }
+LOCell >> mouseUp: anEvent [
+ self toggleState.
+ mouseAction value
 ]
 
 { #category : 'switching' }
